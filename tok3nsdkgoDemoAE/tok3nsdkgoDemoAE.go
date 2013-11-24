@@ -3,30 +3,30 @@ package  tok3nsdkgoDemoAE
 import (
 	"net/http"
 	"fmt"
-
-	 
+	"appengine"
+	"appengine/datastore"
 	"github.com/gorilla/sessions"
 )
 
 var sessionsStore = sessions.NewCookieStore([]byte("What ever you feel secure"))
 
-func secureWebAccess(w http.ResponseWriter, r *http.Request) *UserWeb{
+func secureWebAccess(w http.ResponseWriter, r *http.Request) *User{
 	session, _ := sessionsStore.Get(r, "logindata")
 	value := session.Values["id"]
 	
-	var u UserWeb
+	var u User
 
     if (value == nil){
     	http.Redirect(w, r, "/login.do", http.StatusTemporaryRedirect)
-		return
+		return nil
 	}else{
 		c := appengine.NewContext(r)
-		k := datastore.NewKey(c,"UserWeb","",value.(int64),nil)
+		k := datastore.NewKey(c,"User","",value.(int64),nil)
 		err := datastore.Get(c,k,&u)
 		if err!= nil{
 			//what ever you have in the session is not in the datastore, these happends when you delete a user directly from the datastore, and the sesion is still active
 			http.Redirect(w, r, "/login.do", http.StatusTemporaryRedirect)
-			return
+			return nil
 		}
     }
 

@@ -4,13 +4,11 @@ application: thegoapp
 version: 1
 
 handlers:  
-
 - url: /
   script: _go_app
 - url: /_ah/warmup
   script: _go_app
-
-  - url: /login.*
+- url: /login.*
   script: _go_app 
 
 - url: /ws/.*

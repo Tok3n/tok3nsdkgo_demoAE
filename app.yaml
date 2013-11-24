@@ -9,8 +9,9 @@ handlers:
   script: _go_app
 - url: /_ah/warmup
   script: _go_app
-- url: /dashboard
-  script: _go_app
+
+  - url: /login.*
+  script: _go_app 
 
 - url: /ws/.*
   script: _go_app

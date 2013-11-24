@@ -8,4 +8,4 @@ NOTE: After cloning these repository run
 
 git submodule init
 
-To import the actual library
+To import the actual library, and some other usefull libraries from gorilla

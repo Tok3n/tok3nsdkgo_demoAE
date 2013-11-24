@@ -1,3 +1,12 @@
 [submodule "github.com/Tok3n/tok3nsdkgo"]
 	path = github.com/Tok3n/tok3nsdkgo
 	url = git://github.com/Tok3n/tok3nsdkgo.git
+[submodule "github.com/gorilla/context"]
+	path = github.com/gorilla/context
+	url = git://github.com/gorilla/context.git
+[submodule "github.com/gorilla/securecookie"]
+	path = github.com/gorilla/securecookie
+	url = git://github.com/gorilla/securecookie.git
+[submodule "github.com/gorilla/sessions"]
+	path = github.com/gorilla/sessions
+	url = git://github.com/gorilla/sessions.git

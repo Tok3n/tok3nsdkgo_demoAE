@@ -1,0 +1,3 @@
+[submodule "github.com/Tok3n/tok3nsdkgo"]
+	path = github.com/Tok3n/tok3nsdkgo
+	url = git://github.com/Tok3n/tok3nsdkgo.git

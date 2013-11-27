@@ -6,6 +6,10 @@ version: 1
 handlers:  
 - url: /
   script: _go_app
+- url: /tok3ncallback
+  script: _go_app
+- url: /tok3nreturn
+  script: _go_app
 - url: /_ah/warmup
   script: _go_app
 - url: /login.*

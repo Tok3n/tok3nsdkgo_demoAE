@@ -7,3 +7,6 @@
 [submodule "github.com/gorilla/sessions"]
 	path = github.com/gorilla/sessions
 	url = git://github.com/gorilla/sessions.git
+[submodule "github.com/Tok3n/tok3nsdkgo"]
+	path = github.com/Tok3n/tok3nsdkgo
+	url = git://github.com/Tok3n/tok3nsdkgo.git

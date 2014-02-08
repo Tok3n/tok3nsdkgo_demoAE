@@ -14,7 +14,7 @@ import (
 )
 
 var sessionsStore = sessions.NewCookieStore([]byte("What ever you feel secure"))
-var tok3nConfig = tok3nsdkgo.GetTok3nConfigWithSecretPublic("a76f7b1e-c741-5c2d-5a35-cda0d08ddda7","c0c0fa82-6e4f-5040-5004-262c22acfa48")
+var tok3nConfig = tok3nsdkgo.GetTok3nConfigWithSecretPublic("1cb3c789-e70c-5bed-7116-83f9ac6e23f7","96865818-8b40-5f93-4488-2c638d2151cb")
 
 func ReadString(filename string) string{
     

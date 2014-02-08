@@ -103,7 +103,7 @@ func askForTok3n(w http.ResponseWriter, r *http.Request){
 	c := appengine.NewContext(r)
 	tok3nInstance := tok3nsdkgo.GetAppEngineTok3nInstance(c,tok3nConfig)
 
-	s := []string{"<html><form action=\"/login.tok3nverify\"><div id=\"tok3n_placeholder\"></div><script language=\"javascript\" src='", tok3nInstance.GetJsClientUrl("Login",usr.Tok3nKey), "' ></script></form></html>"}
+	s := []string{"<html><form action=\"/login.tok3nverify\"><div id=\"tok3n_placeholder\"></div><script language=\"javascript\" src='", tok3nInstance.GetJsClientUrl__v1_5("Login",usr.Tok3nKey), "' ></script></form></html>"}
 	fmt.Fprint(w, strings.Join(s,""))
 }
 
@@ -111,20 +111,34 @@ func tok3nverify(w http.ResponseWriter, r *http.Request){
 	usr := secureWebAccess(w,r)
 	otp := r.FormValue("tok3n_otp_field")
 	session := r.FormValue("tok3n_sesion")
+	sqr := r.FormValue("tok3n_sqr")
 
-	if otp == "" || session==""{
+	if session=="" || (otp=="" && sqr==""){
 		fmt.Fprintf(w, "Error: invalid parameters")
 		return
 	}
 
 	c := appengine.NewContext(r)
 	tok3nInstance := tok3nsdkgo.GetAppEngineTok3nInstance(c,tok3nConfig)
-	response,err := tok3nInstance.ValidateOTP(usr.Tok3nKey, otp, session)
-	if err!=nil{
-		fmt.Fprintf(w,"%s",err)
-		return
+
+	if otp != ""{
+		response,err := tok3nInstance.ValidateOTP(usr.Tok3nKey, otp, session)
+		if err!=nil{
+			fmt.Fprintf(w,"%s",err)
+			return
+		}
+		fmt.Fprintf(w, response)
+	}else if sqr != ""{
+		response,err := tok3nInstance.ValidateSqr(usr.Tok3nKey, sqr, session)
+		if err!=nil{
+			fmt.Fprintf(w,"%s",err)
+			return
+		}
+		fmt.Fprintf(w, response)
 	}
 
-	fmt.Fprintf(w, response)
+	
+
+	
 }
 

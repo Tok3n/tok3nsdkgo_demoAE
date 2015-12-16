@@ -29,6 +29,11 @@ handlers:
 - url: /static/js
   static_dir: static/js
 
+- url: /paypal
+  static_dir: paypal/PaypalInterface/
+- url: /banamex
+  static_dir: oxxo/OxxoBanamex/
+
 
 inbound_services:
 - warmup

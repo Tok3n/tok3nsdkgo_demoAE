@@ -1,0 +1,10 @@
+name: PaypalInterface
+description: A sample web application
+dependencies:
+  browser: any
+  dart_node_tree_sanitizers: any
+  intl: any
+  Tok3n_Dart:
+    path: /Users/onlyangel/Documents/dev/Repositorios/Cloud_Main/Modules/default/src/Cloud_Front/Tok3n_Dart
+  Tok3nAPI_Dart:
+    path: /Users/onlyangel/Documents/dev/Repositorios/Cloud_Main/Modules/default/src/Cloud_Front/Tok3nAPI_Dart
